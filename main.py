@@ -1,12 +1,11 @@
 
-from graphics import *
+from agent import *
+from environment import *
+from graphicwindow import *
 
-win = GraphWin("test", 500, 500)
+tokyo = Environment(1., 1.)
+yakuza = Agent(tokyo, .1, .1)
+police = Agent(tokyo, .9, .9)
 
-pt = Point(50,50)
-cir = Circle(pt, 25)
-cir.draw(win)
-
-
-win.getMouse()
-win.close()
+pretty = GraphicWindow(500, tokyo)
+pretty.wait_click()

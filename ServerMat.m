@@ -13,7 +13,7 @@
 function [ sMat ] = ServerMat( AgentNum,Dim,SizeOfEnvironmet )
 
     sMat=zeros(AgentNum,Dim);
-    for j=1:Dim
+    for j=1:1
         for i=1:AgentNum
             sMat(i,j)=i;
         end

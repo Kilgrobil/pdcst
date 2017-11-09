@@ -8,18 +8,19 @@
 clc;
 clear all;
 close all;
-AgentNum=5; % Number of Agents
+TrackerNum = 4;
+TargetNum = 4;
+AgentNum= TrackerNum + TargetNum; % Number of Agents
 AgentSize=100; % Size of agents in plot
 Dimension=2; % Select Dim
 SizeOfEnvironmet=[15 15 15 ;-4 -4 -4]; % Size of Environmet (MAX(X Y Z);MIN(X Y Z))
-Aim=[4,8];
 if Dimension==2
     Dim='2';
 else
     Dim='3';
 end
 
-sMat=ServerMat(AgentNum,Dimension,SizeOfEnvironmet); % Make 1st position of agents
+sMat=ServerMat(TrackerNum,TargetNum,Dimension,SizeOfEnvironmet); % Make 1st position of agents
 whitebg('black')
 %% Make 1st Plot of agents using scatter plot
 
@@ -37,17 +38,16 @@ end
 % position like 'UpdatePos' function .
 
 Step=.5; % Step make the Step of agent position in each iteration
-Max_It=100; % Max iteration of agents work
+Max_It=1000; % Max iteration of agents work
 
-sMat(AgentNum+3,1:2)=Aim;
 pause(0.5);
 for it=1:Max_It
     switch Dim
         case '2'
-            sMat=UpdatePos(sMat,Step,AgentSize,Dimension,Aim,AgentNum);
+            sMat=UpdatePos(sMat,Step,Dimension,TrackerNum,TargetNum,it);
             scatter(sMat(:,1),sMat(:,2),AgentSize,sMat(:,3),'filled')
         case '3'
-            sMat=UpdatePos(sMat,Step,AgentSize,Dimension,Aim,AgentNum);
+            sMat=UpdatePos(sMat,Step,Dimension,TrackerNum,TargetNum,it);
             scatter3(sMat(:,1),sMat(:,2),sMat(:,3),AgentSize,sMat(:,4),'filled')
     end
     disp(['Iteration :' num2str(it) ]);

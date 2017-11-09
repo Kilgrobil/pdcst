@@ -20,5 +20,7 @@ end
 alpha = 1/12;
 rot = [cos(alpha) (-sin(alpha)) ; sin(alpha) cos(alpha)];
 for j=1:TargetNum
-    sMat(TrackerNum+j,1:Dimension) = [2*j 2*j] + (sMat(TrackerNum+j,1:Dimension)-[2*j 2*j])*rot;
+    goaway = (sMat(TrackerNum+j,1:Dimension) - sMat(j,1:Dimension));
+    temp = [2*j 2*j] + 3*1/norm((sMat(TrackerNum+j,1:Dimension)-[2*j 2*j]))*(sMat(TrackerNum+j,1:Dimension)-[2*j 2*j])*rot + 1/(norm(goaway)*norm(goaway))*goaway - sMat(TrackerNum+j,1:Dimension);
+    sMat(TrackerNum+j,1:Dimension) = sMat(TrackerNum+j,1:Dimension) + min(temp,1/norm(temp)*temp);
 end

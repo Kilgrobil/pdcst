@@ -37,7 +37,7 @@ end
 % This codes update the position of agents and using the sample changing
 % position like 'UpdatePos' function .
 
-Step=.5; % Step make the Step of agent position in each iteration
+Step=.3; % Step make the Step of agent position in each iteration
 Max_It=1000; % Max iteration of agents work
 
 pause(0.5);

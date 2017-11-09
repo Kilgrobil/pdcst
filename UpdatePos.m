@@ -18,7 +18,13 @@ for i=1:TrackerNum
     sMat(i,1:Dimension) = sMat(i,1:Dimension) + mvt*diff;
 end
 alpha = 1/12;
-rot = [cos(alpha) (-sin(alpha)) ; sin(alpha) cos(alpha)];
+if Dimension==2
+    rot = [cos(alpha) (-sin(alpha)) ; sin(alpha) cos(alpha)];
+else
+    rot = [1 0 0;
+        0 cos(alpha) (-sin(alpha));
+        0 sin(alpha) cos(alpha)];
+end
 for j=1:TargetNum
-    sMat(TrackerNum+j,1:Dimension) = [2*j 2*j] + (sMat(TrackerNum+j,1:Dimension)-[2*j 2*j])*rot;
+    sMat(TrackerNum+j,1:Dimension) = (2*j)*ones(1, Dimension) + (sMat(TrackerNum+j,1:Dimension)-(2*j)*ones(1,Dimension))*rot;
 end

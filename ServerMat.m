@@ -17,7 +17,7 @@ function [ sMat ] = ServerMat(TrackerNum,TargetNum,Dim,SizeOfEnvironmet )
         sMat(i,1)=i;
     end
     for j=1:TargetNum
-       sMat(TrackerNum+j,1:Dim) = [2*j+2;2*j+2];
+       sMat(TrackerNum+j,1:Dim) = (2*j+2)*ones(1,Dim);
     end
     sMat(:,Dim+1)=(1:AgentNum);
     for i=1:2

@@ -3,17 +3,18 @@ clear all;
 close all;
 TrackerNum = 4;
 TargetNum = 4;
-AgentNum= TrackerNum + TargetNum; % Number of Agents
+ObjectiveNum = 4;
+AgentNum= TrackerNum + TargetNum + ObjectiveNum; % Number of Agents
 AgentSize=100; % Size of agents in plot
-Dimension=3; % Select Dim
-SizeOfEnvironmet=[15 15 15 ;-4 -4 -4]; % Size of Environmet (MAX(X Y Z);MIN(X Y Z))
+Dimension=2; % Select Dim
+SizeOfEnvironment=[-4 -4 -4;15 15 15]; % Size of Environmet (MAX(X Y Z);MIN(X Y Z))
 if Dimension==2
     Dim='2';
 else
     Dim='3';
 end
 
-sMat=ServerMat(TrackerNum,TargetNum,Dimension,SizeOfEnvironmet); % Make 1st position of agents
+sMat=initMat(TrackerNum,TargetNum,ObjectiveNum,Dimension,SizeOfEnvironment); % Make 1st position of agents
 whitebg('black')
 %% Make 1st Plot of agents using scatter plot
 

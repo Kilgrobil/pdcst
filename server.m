@@ -31,12 +31,13 @@ end
 % This codes update the position of agents and using the sample changing
 % position like 'UpdatePos' function .
 
-speed=.5; % Step make the Step of agent position in each iteration
+speed=.5; % agents' speed
+radius=.1; % agents' radius
 Max_It=100; % Max iteration of agents work
 
 pause(0.5);
 for it=1:Max_It
-    [trackers,targets,objectives]=UpdatePos(trackers,targets,objectives,speed,it);
+    [trackers,targets,objectives]=UpdatePos(trackers,targets,objectives,speed,radius);
     sMat=makeSMat(trackers,targets,objectives,neutrals);
     switch Dim
         case '2'

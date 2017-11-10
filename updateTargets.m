@@ -5,7 +5,8 @@ newTargets=targets(:,:);
 dim=dim-3;% ignore the team number and the current objective number
 for i=1:targetNum
     objectiveNumber=targets(i,dim+2);
-    objectivePos=objectives(objectiveNumber,1:dim);
+    objective=getAgentById(objectives,objectiveNumber);
+    objectivePos=objective(1:dim);
     direction=objectivePos-targets(i,1:dim);
     dist=norm(direction);
     if dist==0

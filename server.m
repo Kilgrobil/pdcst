@@ -37,7 +37,7 @@ Max_It=100; % Max iteration of agents work
 
 pause(0.5);
 for it=1:Max_It
-    [trackers,targets,objectives]=UpdatePos(trackers,targets,objectives,speed,radius);
+    [trackers,targets,objectives]=UpdatePos(trackers,targets,objectives,speed,radius,SizeOfEnvironment);
     sMat=makeSMat(trackers,targets,objectives,neutrals);
     switch Dim
         case '2'

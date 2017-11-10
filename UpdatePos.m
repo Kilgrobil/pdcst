@@ -1,6 +1,5 @@
-function [ sMat ] = UpdatePos( sMat,speed,trackerNum,targetNum,objectiveNum,t)
-[trackers,targets,objectives]=splitSMat(sMat,trackerNum,targetNum,objectiveNum);
-sMat(1:trackerNum+targetNum+objectiveNum,:)=[updateTrackers(trackers,targets,speed);
-    updateTargets(trackers,targets,objectives,speed);
-    updateObjectives(objectives)];
+function [trackers,targets,objectives] = UpdatePos(trackers,targets,objectives,speed,t)
+trackers=updateTrackers(trackers,targets,speed);
+targets=updateTargets(trackers,targets,objectives,speed);
+objectives=updateObjectives(objectives);
 end

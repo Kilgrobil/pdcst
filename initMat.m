@@ -5,11 +5,9 @@
 % sMat(:,3)=Agent number ( in 2D environment) ; sMat(:,4)=Agent number (in
 % 3D environment)
 
-function [ sMat ] = initMat(TrackerNum,TargetNum,ObjectiveNum,Dim,SizeOfEnvironment )
+function [trackers,targets,objectives,neutrals] = initMat(TrackerNum,TargetNum,ObjectiveNum,Dim,SizeOfEnvironment )
     trackers=initTrackers(TrackerNum,TargetNum,Dim,SizeOfEnvironment);
     targets=initTargets(TargetNum,ObjectiveNum,Dim,SizeOfEnvironment);
     objectives=initObjectives(ObjectiveNum,Dim,SizeOfEnvironment);
-    corner1=[SizeOfEnvironment(1,1:Dim) 0 0];
-    corner2=[SizeOfEnvironment(2,1:Dim) 0 0];
-    sMat=[trackers;targets;objectives;corner1;corner2];
+    neutrals=[SizeOfEnvironment(1,1:Dim) 0 0; SizeOfEnvironment(2,1:Dim) 0 0];
 end

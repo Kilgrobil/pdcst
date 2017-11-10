@@ -14,10 +14,10 @@ else
     Dim='3';
 end
 
-sMat=initMat(TrackerNum,TargetNum,ObjectiveNum,Dimension,SizeOfEnvironment); % Make 1st position of agents
+[trackers,targets,objectives,neutrals]=initMat(TrackerNum,TargetNum,ObjectiveNum,Dimension,SizeOfEnvironment); % Make 1st position of agents
 whitebg('black')
 %% Make 1st Plot of agents using scatter plot
-
+sMat=makeSMat(trackers,targets,objectives,neutrals);
 switch Dim
    case '2'
      scatter(sMat(:,1),sMat(:,2),AgentSize,sMat(:,3),'filled')
@@ -36,7 +36,8 @@ Max_It=100; % Max iteration of agents work
 
 pause(0.5);
 for it=1:Max_It
-    sMat=UpdatePos(sMat,speed,TrackerNum,TargetNum,ObjectiveNum,it);
+    [trackers,targets,objectives]=UpdatePos(trackers,targets,objectives,speed,it);
+    sMat=makeSMat(trackers,targets,objectives,neutrals);
     switch Dim
         case '2'
             scatter(sMat(:,1),sMat(:,2),AgentSize,sMat(:,3),'filled')

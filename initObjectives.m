@@ -1,5 +1,5 @@
 function [ sMat ] = initObjectives(ObjectiveNum,Dim,SizeOfEnvironment )
-    sMat=zeros(ObjectiveNum,Dim+2);
+    sMat=zeros(ObjectiveNum,Dim+3);
     for i=1:ObjectiveNum
         sMat(i,1)=SizeOfEnvironment(1,1) + (SizeOfEnvironment(2,2)-SizeOfEnvironment(1,1))*i/(ObjectiveNum-1);
     end

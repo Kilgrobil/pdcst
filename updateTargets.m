@@ -2,7 +2,7 @@ function newTargets = updateTargets(trackers,targets,objectives,speed)
 %updateTargets returns the new positions of targets
 newTargets=targets(:,:);
 [targetNum,dim]=size(targets);
-dim=dim-2;% ignore the team number and the current objective number
+dim=dim-3;% ignore the team number and the current objective number
 for i=1:targetNum
     objectiveNumber=targets(i,dim+2);
     objectivePos=objectives(objectiveNumber,1:dim);

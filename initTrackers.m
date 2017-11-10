@@ -5,6 +5,6 @@ function [ sMat ] = initTrackers(TrackerNum,TargetNum,Dim,SizeOfEnvironment )
             sMat(i,j)=(SizeOfEnvironment(1,j)+SizeOfEnvironment(2,j))/2;
         end
         sMat(i,Dim+1)=1;
-        sMat(i,Dim+2)=mod(i,TargetNum);
+        sMat(i,Dim+2)=mod(i,TargetNum)+1;
     end
 end

@@ -36,12 +36,11 @@ Max_It=100; % Max iteration of agents work
 
 pause(0.5);
 for it=1:Max_It
+    sMat=UpdatePos(sMat,speed,TrackerNum,TargetNum,ObjectiveNum,it);
     switch Dim
         case '2'
-            sMat=UpdatePos(sMat,speed,Dimension,TrackerNum,TargetNum,it);
             scatter(sMat(:,1),sMat(:,2),AgentSize,sMat(:,3),'filled')
         case '3'
-            sMat=UpdatePos(sMat,speed,Dimension,TrackerNum,TargetNum,it);
             scatter3(sMat(:,1),sMat(:,2),sMat(:,3),AgentSize,sMat(:,4),'filled')
     end
     disp(['Iteration :' num2str(it) ]);

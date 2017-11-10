@@ -3,6 +3,6 @@ function [ sMat ] = initTargets(TargetNum,ObjectiveNum,Dim,SizeOfEnvironment )
     for i=1:TargetNum
         sMat(i,1)=SizeOfEnvironment(1,1) + (SizeOfEnvironment(2,2)-SizeOfEnvironment(1,1))*i/(TargetNum-1);
         sMat(i,Dim+1)=2;
-        sMat(i,Dim+2)=mod(i,ObjectiveNum);
+        sMat(i,Dim+2)=mod(i,ObjectiveNum)+1;
     end
 end

@@ -1,12 +1,7 @@
-%This sampmle code is server of multi agents system (MAS) for work on multi
-%agents problem .
-% Published by Masoud Nadi
-% Email : nadimasoud.90@gmail.com
-% Copy Write 2015
-%% make agents matrix
-% This function load agents in random positions in a line
 % The sMat matrix is :
 % sMat(:,1)=X ; sMat(:,2)=Y ;sMat(:,3)=Z (in 3D environment) ;
+% sMat(:,Dim+1)=team (1: tracker, 2: target, 3: objective)
+% sMat(:,Dim+2)=current objective number 
 % sMat(:,3)=Agent number ( in 2D environment) ; sMat(:,4)=Agent number (in
 % 3D environment)
 

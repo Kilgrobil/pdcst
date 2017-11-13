@@ -1,6 +1,9 @@
 clc;
 clear all;
 close all;
+folder = pwd;
+addpath(genpath(folder), '-end');
+
 TrackerNum = 4;
 TargetNum = 4;
 ObjectiveNum = 4;

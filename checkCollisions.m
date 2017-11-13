@@ -22,7 +22,7 @@ end
 % check wall collisions
 i=1;
 while i<=trackerNum
-    if distanceToEdge(trackers(i,1:dim),envSize) < radius
+    if distanceToEdge(trackers(i,1:dim),envSize) - radius < 0
         trackers(i,:)=[];
         i=i-1;
         trackerNum=trackerNum-1;

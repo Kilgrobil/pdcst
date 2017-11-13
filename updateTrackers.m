@@ -10,9 +10,8 @@ dim=dim-3;% ignore the team number and the current target number
 for i=1:trackerNum
     targetNumber=trackers(i,dim+2);
     target=getAgentById(targets,targetNumber);
-    while target==0
-        targetNumber=mod(targetNumber,targetNum)+1;
-        target=getAgentById(targets,targetNumber);
+    if target==0
+        target=targets(1,:);
     end
     targetPos=target(1:dim);
     direction=targetPos-trackers(i,1:dim);

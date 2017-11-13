@@ -3,6 +3,7 @@ clear all;
 close all;
 folder = pwd;
 addpath(genpath(folder), '-end');
+rmpath(fullfile(folder,'.git'));
 
 TrackerNum = 4;
 TargetNum = 4;

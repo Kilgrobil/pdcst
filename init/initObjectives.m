@@ -4,7 +4,7 @@ function [ sMat ] = initObjectives(ObjectiveNum,Dim,SizeOfEnvironment )
         sMat(i,1)=SizeOfEnvironment(1,1) + (SizeOfEnvironment(2,2)-SizeOfEnvironment(1,1))*(i-0.5)/ObjectiveNum;
         sMat(i,Dim+3)=i;
     end
-    sMat(:,2)=SizeOfEnvironment(1,2)*ones(ObjectiveNum,1);
+    sMat(:,2)=(SizeOfEnvironment(1,2)*.9+SizeOfEnvironment(2,2)*.1)*ones(ObjectiveNum,1);
     if Dim~=2
         sMat(:,3)=SizeOfEnvironment(1,3)*ones(ObjectiveNum,1);
     end

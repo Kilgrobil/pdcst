@@ -35,11 +35,12 @@ end
 % This codes update the position of agents and using the sample changing
 % position like 'UpdatePos' function .
 
-speed=.5; % agents' speed
+speed=.05; % agents' speed
 radius=.1; % agents' radius
-Max_It=100; % Max iteration of agents work
+Max_It=1000; % Max iteration of agents work
 
 pause(0.5);
+displayCounter=0;
 for it=1:Max_It
     [trackers,targets,objectives]=UpdatePos(trackers,targets,objectives,speed,radius,SizeOfEnvironment);
     sMat=makeSMat(trackers,targets,objectives,neutrals);
@@ -49,6 +50,9 @@ for it=1:Max_It
         case '3'
             scatter3(sMat(:,1),sMat(:,2),sMat(:,3),AgentSize,sMat(:,4),'filled')
     end
-    disp(['Iteration :' num2str(it) ]);
-    pause(0.05);
+    displayCounter=displayCounter+1;
+    if mod(displayCounter,5)==0
+        disp(['Iteration :' num2str(it) ]);
+        pause(0.05);
+    end
 end

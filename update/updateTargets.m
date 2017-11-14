@@ -1,10 +1,10 @@
 function newTargets = updateTargets(trackers,targets,objectives,speed,envSize)
 %updateTargets returns the new positions of targets
 %parameters
-trackerParameters=[2 0 0 0 0];
+trackerParameters=[3 0 0 0 0];
 targetParameters=[0 1 0 0 0];
 objectivesParameters=[0 -3 0 0 0];
-wallParameters=[3 0 0 0 0];
+wallParameters=[2 0 0 0 0];
 %function's body
 newTargets=targets(:,:);
 [targetNum,dim]=size(targets);

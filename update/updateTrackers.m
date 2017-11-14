@@ -2,7 +2,7 @@ function newTrackers = updateTrackers(trackers,targets,speed,envSize)
 %updateTrackers returns the new positions of trackers
 %parameters
 trackerParameters=[0 2 0 0 0];
-targetParameters=[0 -3 0 0 0];
+targetParameters=[-1 -3 0 0 0];
 wallParameters=[1 0 0 0 0];
 %function's body
 newTrackers=trackers(:,:);

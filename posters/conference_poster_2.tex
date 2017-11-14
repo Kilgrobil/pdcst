@@ -1,0 +1,233 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dreuw & Deselaer's Poster
+% LaTeX Template
+% Version 1.0 (11/04/13)
+%
+% Created by:
+% Philippe Dreuw and Thomas Deselaers
+% http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+\documentclass[final,hyperref={pdfpagelabels=false}]{beamer}
+
+\usepackage[orientation=portrait,size=a0,scale=1.6]{beamerposter} % Use the beamerposter package for laying out the poster with a portrait orientation and an a0 paper size
+
+\usetheme{I6pd2} % Use the I6pd2 theme supplied with this template
+
+\usepackage[english]{babel} % English language/hyphenation
+
+\usepackage{amsmath,amsthm,amssymb,latexsym} % For including math equations, theorems, symbols, etc
+
+%\usepackage{times}\usefonttheme{professionalfonts}  % Uncomment to use Times as the main font
+%\usefonttheme[onlymath]{serif} % Uncomment to use a Serif font within math environments
+
+\boldmath % Use bold for everything within the math environment
+
+\usepackage{booktabs} % Top and bottom rules for tables
+\usepackage{ragged2e}
+
+\graphicspath{{figures/}} % Location of the graphics files
+
+\usecaptiontemplate{\small\structure{\insertcaptionname~\insertcaptionnumber: }\insertcaption} % A fix for figure numbering
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\title{\Huge Pluie de Coke sur Tokyo} % Poster title
+
+\author{Valentin Baillard, Alexandre Goy et Nicolas Vasselin} % Author(s)
+
+\institute{Fili\`ere M\'etiers de la Recherche, CentraleSup\'elec, sous la supervision de Cristina Maniu} % Institution(s)
+
+%----------------------------------------------------------------------------------------
+%	FOOTER TEXT
+%----------------------------------------------------------------------------------------
+
+\newcommand{\leftfoot}{} % Left footer text
+
+\newcommand{\rightfoot}{valentin.baillard@student.ecp.fr \\ alexandre.goy@student.ecp.fr \\ nicolas.vasselin@student.ecp.fr} % Right footer text
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
+
+\begin{frame}[t] % The whole poster is enclosed in one beamer frame
+
+\begin{columns}[t] % The whole poster consists of two major columns, each of which can be subdivided further with another \begin{columns} block - the [t] argument aligns each column's content to the top
+
+\begin{column}{.02\textwidth}\end{column} % Empty spacer column
+
+\begin{column}{.465\textwidth} % The first column
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+            
+\begin{block}{Introduction}
+
+\begin{itemize}
+\item \justify Les bandits aussi sont friands de nouvelles technologies. Que se passera-t-il quand les yakuzas de Tokyo remplaceront leurs dealers de coca\"{i}ne par des drones ? Vraisemblablement, les policiers japonais leur renverront la pareille et on assistera à des courses-poursuites a\'eriennes de drones. Notre \'etude de cas a pour objectif de mod\'eliser une telle situation à l'aide de syst\`emes multi-agents. Un syst\`eme multi-agents, c'est simplement un syst\`eme constitu\'e de plusieurs agents qui interagissent d'une fa\c{c}on ou d'une autre. Dans notre cas, les agents sont de deux types :
+\begin{itemize}
+\item Drones policiers
+\item Drones yakuzas
+\end{itemize}
+\item Les yakuzas veulent livrer de la drogue \`a certains points strat\'egiques, tout en \'evitant les policiers. Les policiers veulent arr\^eter les yakuzas. Tous cherchent \`a \'eviter les collisions.
+\end{itemize}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Objectifs}
+\begin{itemize}
+\item Parvenir \`a montrer que les strat\'egies optimales pour un camp comme pour l'autre pr\'esentent des comportements de groupe.
+\item Dans ce but, il va falloir bien poser le probl\`eme : 
+\begin{itemize}
+\item Qu'est-ce qu'un comportement de groupe ?
+\item[] $\to$ Comment le mesurer ?
+\item Qu'est-ce qu'une strat\'egie optimale ?
+\item[] $\to$ Quelle fonction objectif maximiser ?
+\end{itemize}
+\end{itemize}
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	SIMULATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Premi\`eres simulations}
+\begin{figure}[h!]
+   \begin{minipage}[b]{0.50\linewidth}
+      \centering \includegraphics[scale=1.4]{simu_0.png}
+      \caption{\text{ }$0$ it\'erations}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.50\linewidth}   
+      \centering \includegraphics[scale=1.4]{simu_300.png}
+      \caption{\text{ } $300$ it\'erations}
+   \end{minipage}
+   \begin{minipage}[b]{0.50\linewidth}
+      \centering \includegraphics[scale=1.4]{simu_100.png}
+      \caption{\text{ } $100$ it\'erations}      
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.50\linewidth}   
+      \centering \includegraphics[scale=1.4]{simu_400.png}
+      \caption{\text{ } $400$ it\'erations}      
+   \end{minipage}
+   \begin{minipage}[b]{0.50\linewidth}
+      \centering \includegraphics[scale=1.4]{simu_200.png}
+      \caption{\text{ } $200$ it\'erations}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.50\linewidth}   
+      \centering \includegraphics[scale=1.4]{simu_500.png}
+      \caption{\text{ } $500$ it\'erations}
+   \end{minipage}
+   
+\end{figure}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the first column
+
+\begin{column}{.03\textwidth}\end{column} % Empty spacer column
+ 
+\begin{column}{.465\textwidth} % The second column
+
+%----------------------------------------------------------------------------------------
+%	MATHEMATICAL SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{block}{Approche par potentiels}
+
+\begin{itemize}
+\item Un policier $\overline{p}$ est soumis \`a :
+\begin{itemize}
+\item Un potentiel attractif vers chaque yakuza $U_{\to y}$
+\item Un potentiel r\'epulsif depuis chaque \alert{autre} policier $U_{\gets p}$
+\item Un potentiel r\'epulsif pour \'eviter l'environnement $U_{\gets E}$.
+\end{itemize}
+\item Le potentiel total du point de vue de $\overline{p}$ est de la forme
+\begin{align*}
+U_{\overline{p}} = \sum_{y \in Y} U_{\to y} + \sum_{p \in P\setminus\{\overline{p}\}} U_{\gets p} + U_{\gets E}
+\end{align*}
+\item Un yakuza $\overline{y}$ est soumis \`a des potentiels similaires, plus :
+\begin{itemize}
+\item Un potentiel attractif vers un point objectif $V_{\to O}$
+\end{itemize}
+\item Le potentiel total du point de vue de $\overline{y}$ est de la forme
+\begin{align*}
+V_{\overline{y}} = V_{\to O} + \sum_{y \in Y \setminus \{\overline{y}\}} V_{\gets y} + \sum_{p \in P} V_{\gets p} + V_{\gets E}
+\end{align*}
+\end{itemize}
+Dans notre mod\'elisation, chaque agent se d\'eplace dans la direction du gradient de son potentiel. La vitesse d\'epend de la norme de ce gradient mais reste born\'ee.
+\end{block}
+
+%---------------------------------------------------------------------------------------
+%    SCHEME
+%---------------------------------------------------------------------------------------
+
+\begin{block}{Sch\'ema}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{potentials.png}
+\caption{\text{ } Lignes de niveau des potentiels}
+\end{figure}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	TO BE CONTINUED
+%----------------------------------------------------------------------------------------
+
+\begin{block}{\`A suivre}
+
+\begin{itemize}
+\item En quelque sorte, les potentiels correspondent \`a l'existence d'un champ de type \'electrique. Pour permettre des mouvements de rotations, et esp\'erer voir appara\^itre des strat\'egies de contournement et d'encerclement, il peut \^etre pertinent d'ajouter un champ de type magn\'etique. Pour cela, des m\'ethodes inspir\'ees de la th\'eorie des plasmas peuvent \^etre utiles.
+\item Une fois la fonction objectif d\'efinie, il serait pertinent d'utiliser de l'apprentissage afin de chercher les strat\'egies optimales.
+\end{itemize}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\begin{block}{R\'ef\'erences}
+Merci \`a Matlab.
+%\nocite{*} % Insert publications even if they are not cited in the poster
+%\small{\bibliographystyle{unsrt}
+%\bibliography{sample}}
+
+\end{block}
+
+%----------------------------------------------------------------------------------------
+
+\end{column} % End of the second column
+
+\begin{column}{.015\textwidth}\end{column} % Empty spacer column
+
+\end{columns} % End of all the columns in the poster
+
+\end{frame} % End of the enclosing frame
+
+\end{document}
+

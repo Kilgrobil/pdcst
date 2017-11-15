@@ -1,3 +1,12 @@
 .idea
 __pycache__
 *.asv
+**.DS_Store
+posters/*.aux
+posters/*.log
+posters/*.nav
+posters/*.out
+posters/*.pdf
+posters/*.snm
+posters/*.synctex.gz
+posters/*.toc

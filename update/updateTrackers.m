@@ -1,4 +1,4 @@
-function newTrackers = updateTrackers(trackers,targets,speed,envSize)
+function newTrackers = updateTrackers(trackers,targets,p)
 %updateTrackers returns the new positions of trackers
 %parameters
 trackerParameters=[0 2 0 0 0];
@@ -29,13 +29,13 @@ for i=1:trackerNum
     for j=1:targetNum
         direction=direction-basicGradient(targetParameters,trackers(i,1:dim),targets(j,1:dim));
     end
-    direction=direction+wallGradient(wallParameters,trackers(i,1:dim),envSize);
+    direction=direction+wallGradient(wallParameters,trackers(i,1:dim),p.SizeOfEnvironment);
     dist=norm(direction);
     if dist==0
         update=zeros(1,dim);
     else
         %update=(min(dist,speed)/dist)*direction;
-        update=(speed/dist)*direction;
+        update=(p.speed/dist)*direction;
     end
     newTrackers(i,1:dim)=trackers(i,1:dim)+update;
 end

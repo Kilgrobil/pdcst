@@ -1,6 +1,8 @@
-function [trackers,targets,objectives] = checkCollisions(trackers,targets,objectives,radius,envSize)
+function [trackers,targets,objectives] = checkCollisions(trackers,targets,objectives,p)
 % checkcheckCollisions deletes agents who exit the environment, and targets
 % hit by trackers
+radius=p.radius;
+envSize=p.SizeOfEnvironment;
 [trackerNum,dim]=size(trackers);
 targetNum=size(targets,1);
 objectiveNum=size(objectives,1);

@@ -1,4 +1,4 @@
-function newTargets = updateTargets(trackers,targets,objectives,speed,envSize)
+function newTargets = updateTargets(trackers,targets,objectives,p)
 %updateTargets returns the new positions of targets
 %parameters
 trackerParameters=[3 0 0 0 0];
@@ -32,13 +32,13 @@ for i=1:targetNum
     elseif targets(i,dim+2)==0
         direction=direction-basicGradient(objectivesParameters,targets(i,1:dim),objectives(objectiveNum,1:dim));
     end
-    direction=direction+wallGradient(wallParameters,targets(i,1:dim),envSize);
+    direction=direction+wallGradient(wallParameters,targets(i,1:dim),p.SizeOfEnvironment);
     dist=norm(direction);
     if dist==0
         update=zeros(1,dim);
     else
         %update=(min(dist,speed)/dist)*direction;
-        update=(speed/dist)*direction;
+        update=(p.speed/dist)*direction;
     end
     newTargets(i,1:dim)=targets(i,1:dim)+update;
 end

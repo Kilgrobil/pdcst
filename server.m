@@ -41,11 +41,10 @@ end
 %% Update agents position
 % This codes update the position of agents and using the sample changing
 % position like 'UpdatePos' function .
-
-pause(0.5);
+m.deliveries=0;% m stands for measures
 displayCounter=0;
 for it=1:p.Max_It
-    [trackers,targets,objectives]=UpdatePos(trackers,targets,objectives,p);
+    [trackers,targets,objectives,m]=UpdatePos(trackers,targets,objectives,p,m);
     displayCounter=displayCounter+1;
     if p.display && mod(displayCounter,p.refreshRate)==0
         sMat=makeSMat(trackers,targets,objectives,neutrals);
@@ -55,7 +54,7 @@ for it=1:p.Max_It
             case '3'
                 scatter3(sMat(:,1),sMat(:,2),sMat(:,3),p.AgentSize,sMat(:,4),'filled')
         end
-        disp(['Iteration :' num2str(it) ]);
+        disp(['Iteration :' num2str(it) ' , deliveries made:' num2str(m.deliveries)]);
         pause(0.05);
     end
 end

@@ -1,4 +1,4 @@
-function [trackers,targets,objectives] = checkCollisions(trackers,targets,objectives,p)
+function [trackers,targets,objectives,measures] = checkCollisions(trackers,targets,objectives,p,measures)
 % checkcheckCollisions deletes agents who exit the environment, and targets
 % hit by trackers
 radius=p.radius;
@@ -46,6 +46,7 @@ for i=1:targetNum
         for j=1:objectiveNum-1% ignore base
             if norm(targets(i,1:dim)-objectives(j,1:dim)) < radius
                 targets(i,dim+2)=0;% delivery made
+                measures.deliveries=measures.deliveries+1;
             end
         end
     elseif targets(i,dim+2)==0 && norm(targets(i,1:dim)-objectives(objectiveNum,1:dim)) < radius

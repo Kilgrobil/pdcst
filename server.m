@@ -37,7 +37,7 @@ end
 
 speed=.05; % agents' speed
 radius=.1; % agents' radius
-Max_It=1000; % Max iteration of agents work
+Max_It=5000; % Max iteration of agents work
 
 pause(0.5);
 displayCounter=0;

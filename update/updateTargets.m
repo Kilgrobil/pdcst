@@ -25,8 +25,12 @@ for i=1:targetNum
             direction=direction-basicGradient(targetParameters,targets(i,1:dim),targets(j,1:dim));
         end
     end
-    for j=1:objectiveNum
-        direction=direction-basicGradient(objectivesParameters,targets(i,1:dim),objectives(j,1:dim));
+    if targets(i,dim+2)==1
+        for j=1:objectiveNum-1% ignoring the base
+            direction=direction-basicGradient(objectivesParameters,targets(i,1:dim),objectives(j,1:dim));
+        end
+    elseif targets(i,dim+2)==0
+        direction=direction-basicGradient(objectivesParameters,targets(i,1:dim),objectives(objectiveNum,1:dim));
     end
     direction=direction+wallGradient(wallParameters,targets(i,1:dim),envSize);
     dist=norm(direction);
